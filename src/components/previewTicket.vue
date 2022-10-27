@@ -1,4 +1,4 @@
-<template> 
+<template>
   <v-dialog v-model="previewDialog" width="650" height="500" class="rounded-3xl dragFont">
     <template v-slot:activator="{ on, attrs }">
       <a @click="changeDialog(true)" class="w-8 h-8 mr-4" v-bind="attrs" v-on="on" >
@@ -40,14 +40,14 @@
                     <div class="text-sm mt-4">Status</div>
                     <div class="text-s font-bold">{{parentmessage.status}}</div>
                   </div>
-                </div> 
                 </div>
-                
+                </div>
+
                 <div class="border-b border-dashed border-b-2 my-5 pt-5">
                   <div class="absolute rounded-full w-5 h-5 bg-gray-300 -mt-2 -left-2"></div>
                   <div class="absolute rounded-full w-5 h-5 bg-gray-300 -mt-2 -right-2"></div>
                 </div>
-                
+
                 <div>
                   <div class="ml-auto text-gray-300">Contact</div>
                   <div class="grid grid-cols-2 gap-2">
@@ -59,7 +59,7 @@
                       <div class="text-sm">Student ID</div>
                       <div class="text-s font-bold">{{parentmessage.contact.studentId}}</div>
                     </div>
-                  </div> 
+                  </div>
                 </div>
 
                 <div>
@@ -72,7 +72,7 @@
                       <div class="text-sm">Major</div>
                       <div class="text-s font-bold">{{parentmessage.contact.major}}</div>
                     </div>
-                  </div> 
+                  </div>
                 </div>
 
                 <div>
@@ -92,7 +92,7 @@
                   <div class="absolute rounded-full w-5 h-5 bg-gray-300 -mt-2 -left-2"></div>
                   <div class="absolute rounded-full w-5 h-5 bg-gray-300 -mt-2 -right-2"></div>
                 </div>
-                
+
                 <div>
                   <div class="ml-auto text-gray-300">Time</div>
                   <div class="grid grid-cols-2 gap-2">
@@ -104,7 +104,7 @@
                       <div class="text-sm">Last Update</div>
                       <div class="text-s font-bold">{{lastUpdate}}</div>
                     </div>
-                  </div> 
+                  </div>
                 </div>
                 </div>
 

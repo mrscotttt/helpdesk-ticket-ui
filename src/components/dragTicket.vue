@@ -217,20 +217,20 @@
               let updateParams = evt.added.element
               updateParams.status = status
               try{
-                let tkt = await axios.post('/updateStatusTicket',updateParams)
-                // console.log("update success")
+                let tkt = await axios.put('/updateTicket',updateParams)
+                // // console.log("update success")
                 await this.hookticket()
                 await this.groupUp()
               }
               catch(err){
-                // console.log("update fail",err)
+                // // console.log("update fail",err)
               }
             }
         },
         async hookticket() {
             try{
                 let tkt = await axios.get('/ticket')
-                this.ticketCard = tkt.data.Items
+                this.ticketCard = tkt.data
                 if(this.ticketCard.length>0){this.ticketCard.sort((a, b) => a.createTime - b.createTime);}
             }
             catch(err){

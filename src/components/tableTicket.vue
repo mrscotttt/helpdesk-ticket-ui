@@ -102,11 +102,18 @@ export default {
             }
           }))
         }
-        
+
         if(this.filterMode=="Create Time (Old)"){demo.sort((a, b) => a.createTime - b.createTime);}
         if(this.filterMode=="Create Time (New)"){demo.sort((a, b) => b.createTime - a.createTime);}
         if(this.filterMode=="Update Time (Old)"){demo.sort((a, b) => a.lastUpdate - b.lastUpdate);}
         if(this.filterMode=="Update Time (New)"){demo.sort((a, b) => b.lastUpdate - a.lastUpdate);}
+
+        for(var i=0;i<(demo).length;i++){
+            demo[i].createTime = Number(demo[i].createTime)
+            demo[i].lastUpdate = Number(demo[i].lastUpdate)
+            demo[i].createTimeFormat = moment(demo[i].createTime).format("DD MMM YYYY hh:mm")
+            demo[i].lastUpdateFormat = moment(demo[i].lastUpdate).format("DD MMM YYYY hh:mm")
+        }
 
         return demo
       }
@@ -117,7 +124,8 @@ export default {
       async hookticket() {
           try{
               let tkt = await axios.get('/ticket')
-              this.ticketCard = tkt.data.Items
+              // console.log(tkt)
+              this.ticketCard = tkt.data
               if(this.ticketCard.length>0){this.ticketCard.sort((a, b) => b.createTime - a.createTime);}
           }
           catch(err){

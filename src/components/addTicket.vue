@@ -191,16 +191,16 @@
         },
         async hookticket() {
             try{
-                let url = "/ticketById/"+this.parentmessage.ticketId+"/"+this.parentmessage.createTime
+                let url = "/ticketById/"+this.parentmessage.ticketId
                 let tkt = await axios.get(url)
-                this.editTicket = tkt.data.Item
+                this.editTicket = tkt.data
             }
             catch(err){
                 this.editTicket = []
             }
         },
         async save() {
-            // console.log("save")
+            // // console.log("save")
             this.load = true
             if(!this.validateitem){
               this.load = false
@@ -209,8 +209,8 @@
             else{
               this.warning = false
               try{
-                let tkt = await axios.post('/addTicket',this.editTicket)
-                // console.log("save success")
+                let tkt = await axios.put('/updateTicket',this.editTicket)
+                // // console.log("save success")
                 this.load = false
                 this.previewDialog = false
                 location.reload()
